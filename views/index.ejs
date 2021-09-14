@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes app</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./mediaQuery.css">
+</head>
+<body>
+    <nav id="navbar">
+        <ul id="navlist" class="flex-center">
+            <li class="navlinks navitems" id="active"><a href="#">Home</a></li>
+            <li class="navlinks navitems"><a href="#">Share notes</a></li>
+            <li class="navGreet" id="greet">Welcome</li>
+        </ul>
+    </nav>
+    
+    <section id="save_note_section">
+        <div id="save_note_container" class="flex-center">
+            <div id="save_note_div" contenteditable="true" onclick="growDiv()"></div>
+            <form action="/" method="post">
+                <textarea name="save_note" id="save_note_txtarea"></textarea>
+                <input onclick="getContent()" type="submit" value="Save" id="save_note">
+            </form>
+        </div>
+    </section>
+    <section id="notes_section">
+        <h1 id="notes_head">Notes</h1>
+        <div id="notes_div" class="flex-center">
+        </div>
+    </section>
+</body>
+<script src="./script.js"></script>
+</html>

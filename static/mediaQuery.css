@@ -1,0 +1,22 @@
+@media(min-width:1000px){
+    .note{
+        margin: 2vw 1vh;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    #save_note_container{
+        margin-top: 10vh;
+    }
+    #save_note_div{
+        width:35vw;
+        height: 20vh;
+        border-radius: 15px;
+        padding: 15px;
+    }
+    #save_note{
+        width: 5vw;
+        height: 5vh;
+        margin-left: 2vw;
+    }
+}
