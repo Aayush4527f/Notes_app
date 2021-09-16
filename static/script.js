@@ -36,12 +36,11 @@ function createNotes() {
         note.className = "note"
         notes_div.appendChild(note)
     }
-
-
     for(let i = 0; i< notes.length; i++){
         let note = document.getElementById(`note${i}`)
         let notePara = document.createElement('p')
         notePara.id = `notePara${i}`
+        notePara.className = "notePara"
         note.appendChild(notePara)
         
         let noteParaTwo = document.createElement('div')
@@ -50,29 +49,25 @@ function createNotes() {
         noteParaTwo.className = "noteParaTwo"
         note.appendChild(noteParaTwo)
     }
-
-
+    for(let i = 0; i<notes.length; i++){
+        let note = document.getElementById(`note${i}`)
+        let FormDiv = document.createElement("div")
+        FormDiv.className = "FormDiv"
+        note.appendChild(FormDiv) 
+    }
     for(let i = 0; i<notes.length; i++){
         let form = document.createElement('form')
-        let note = document.getElementById(`note${i}`)
+        let note = document.getElementsByClassName("FormDiv")
         form.method = "post"
         form.action = "/update"
         form.className = "updateForm"
-        note.appendChild(form)
+        note[i].appendChild(form)
+        let deleteForm = document.createElement('form')
+        deleteForm.method = "post"
+        deleteForm.action = "/delete"
+        deleteForm.className = "deleteForm"
+        note[i].appendChild(deleteForm)
     }
-
-
-    for(let i = 0; i<notes.length; i++){
-        let txt1 = document.createElement('textarea')
-        let form = document.getElementsByClassName('updateForm')
-        
-        txt1.name = `prevNote`
-        txt1.id = `prevNote${i}`
-        txt1.className = "prevNote"
-        form[i].appendChild(txt1)
-    }
-
-
     for(let i = 0; i<notes.length; i++){
         let form = document.getElementsByClassName('updateForm')
         let txt2 = document.createElement('textarea')
@@ -80,16 +75,32 @@ function createNotes() {
         txt2.id = `updateNote${i}`
         txt2.className = "updateNote"
         form[i].appendChild(txt2)
-    }
-
-
-    for(let i = 0; i<notes.length; i++){
-        let form = document.getElementsByClassName('updateForm')
         let input = document.createElement('input')
         input.type = "submit"
         input.value = "Edit"
-        input.className = "submitInput"
+        input.className = "Input"
         form[i].appendChild(input)
+        let txt1 = document.createElement('textarea')
+        txt1.name = `prevNote`
+        txt1.id = `prevNote${i}`
+        txt1.className = "prevNote"
+        form[i].appendChild(txt1)
+    }
+    for(let i = 0; i<notes.length; i++){
+        let input = document.createElement("input")
+        let form = document.getElementsByClassName("deleteForm")
+        input.type = "submit"
+        input.value = "Delete"
+        input.className = "Input"
+        form[i].appendChild(input)
+
+        let txt1 = document.createElement("textarea")
+        txt1.className = "DeleteTxt"
+        txt1.id = `deleteNote${i}`
+        txt1.name = "prevNote"
+        txt1.style.display = "none"
+        form[i].appendChild(txt1)
+
     }
 }
 
@@ -104,8 +115,10 @@ function getTxtData(i) {
     let noteParaTwo = document.getElementById(`noteParaTwo${i}`)
     let prevNote = document.getElementById(`prevNote${i}`)
     let updateNote = document.getElementById(`updateNote${i}`)
+    let deleteNote = document.getElementById(`deleteNote${i}`)
 
     prevNote.value = notePara.innerText 
+    deleteNote.value = notePara.innerText
     updateNote.value = noteParaTwo.innerText 
 }
 

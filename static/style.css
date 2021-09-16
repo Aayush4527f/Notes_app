@@ -34,7 +34,8 @@ ul{
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    /* align-items: center; */
 }
 
 
@@ -108,22 +109,30 @@ ul{
     flex-wrap: wrap;
     justify-self: start;
 }
-
+.FormDiv{
+    display: flex;
+    flex-direction: row;
+}
 .updateNote{
     display: none;
 }
 .prevNote{
     display: none;
 }
+.notePara{
+    margin: 0vh 0vh 10vh 0vh;
+}
 .noteParaTwo{
     padding: 10px;
     height: auto;
     border: solid #262626 2.5px;
+    margin: 5vh 0;
 }
-.submitInput{
+.Input{
     background-color: black;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 10px;
+    margin: 5vh 5vw 0 0;
 }

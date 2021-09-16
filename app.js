@@ -49,6 +49,11 @@ app.post('/update',async (req,res)=>{
     res.render('index.ejs')
 })
 
+app.post('/delete',async (req,res)=>{
+    await Notes.deleteOne({"Note":req.body.prevNote});
+    res.render('index.ejs')
+})
+
 //Mongoose connection
 mongoose.connect('mongodb://localhost:27017/notes_app', {
     useNewUrlParser: true,
