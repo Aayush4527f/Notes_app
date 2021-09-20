@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const path = require('path')
 const bodyParser = require('body-parser')
-const PORT = 8080;
+const PORT = 80;
 const Notes = require("./model/Note.js")
 const { update } = require('./model/Note.js')
 
